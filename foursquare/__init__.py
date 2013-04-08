@@ -6,9 +6,9 @@ import logging.handlers
 import sys
 logging.basicConfig()
 loghandler = logging.StreamHandler(stream=sys.stdout)
-foursquare.log.addHandler(loghandler)
-foursquare.log.setLevel(logging.DEBUG)
 log = logging.getLogger(__name__)
+log.addHandler(loghandler)
+log.setLevel(logging.DEBUG)
 
 try:
     import simplejson as json

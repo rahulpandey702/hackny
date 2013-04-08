@@ -1,9 +1,12 @@
-import foursquare
 from flask import Flask
 from flask import request
+import foursquare
 app = Flask(__name__)
 
-client = foursquare.Foursquare(client_id='VUZAK0IZX2HY0ME2YO0ZS1XFELNRQ00VZEJOHPRBP4XMLSPG', client_secret='HB4YDNBEPHRDUDLEMVNHFULAFPS1WDIOLTVAVQFNPESZKT1F', redirect_uri='http://ec2-50-19-38-82.compute-1.amazonaws.com/redirect')
+#Localhost
+client = foursquare.Foursquare(client_id='IMLKPLRVC03LS1XD354X5D0OA2NH0UMYXLN2BXOJEJFJTU3H', client_secret='W50OBJNVCWV2ZA5CYPQGRKKTDCBPR0NAFPTGX2SVWDJCLXII', redirect_uri='http://localhost:5000/redirect')
+
+#client = foursquare.Foursquare(client_id='VUZAK0IZX2HY0ME2YO0ZS1XFELNRQ00VZEJOHPRBP4XMLSPG', client_secret='HB4YDNBEPHRDUDLEMVNHFULAFPS1WDIOLTVAVQFNPESZKT1F', redirect_uri='http://ec2-50-19-38-82.compute-1.amazonaws.com/redirect')
 @app.route("/")
 def test():
     # Construct the client object
@@ -14,9 +17,6 @@ def test():
 @app.route("/redirect")
 def redirect() :
     code = request.args.get('code')
-    f = open('myfile','w')
-    f.write('hi there\n')
-    f.close()
     access_token = client.oauth.get_token(code)
     # Apply the returned access token to the client
     #client.set_access_token(access_token)
