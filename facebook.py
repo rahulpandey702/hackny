@@ -5,8 +5,8 @@ import json
 
 SECRET_KEY = 'development key'
 DEBUG = True
-FACEBOOK_APP_ID = '147471798767280'
-FACEBOOK_APP_SECRET = '17320c36a8a4b08325dc18e6f8b20789'
+FACEBOOK_APP_ID = ''
+FACEBOOK_APP_SECRET = ''
 
 
 app = Flask(__name__)
